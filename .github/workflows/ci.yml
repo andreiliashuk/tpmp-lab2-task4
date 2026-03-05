@@ -1,0 +1,30 @@
+name: C Build and Test
+
+on:
+  push:
+    branches: [ main, master, development ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Build with Make
+      run: make
+
+    - name: Run program
+      run: ./bin/program
+
+    - name: Check output file
+      run: cat data/vaz_owners.txt
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: program-binary
+        path: bin/
