@@ -1,4 +1,6 @@
-
+/*
+ * Author: Андрей Ляшук, группа 10
+ */
 #include <stdio.h>
 #include "car_owner.h"
 
