@@ -1,3 +1,6 @@
+/*
+ * Author: Андрей Ляшук, группа 10
+ */
 #ifndef CAR_OWNER_H
 #define CAR_OWNER_H
 
