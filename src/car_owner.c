@@ -1,4 +1,6 @@
-
+/*
+ * Author: Андрей Ляшук, группа 10
+ */
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -21,7 +23,10 @@ int create_sample_file(const char *filename) {
     printf("Создан пример файла: %s\n", filename);
     return 0;
 }
-
+/*
+ * Function: read_owners_from_file
+ *   Reads and parses car owner data from a semicolon-separated file.
+ */
 int read_owners_from_file(const char *filename, CarOwner owners[], int max_count) {
     FILE *file = fopen(filename, "r");
     if (file == NULL) {
@@ -78,7 +83,10 @@ int read_owners_from_file(const char *filename, CarOwner owners[], int max_count
     fclose(file);
     return count;
 }
-
+/*
+ * Function: print_owner
+ *   Prints owner information to console in formatted way.
+ */
 void print_owner(const CarOwner *o) {
     printf("%s %s %s | Тел: %s | Адрес: %s, %s, %s, %s, %s, %s %s-%s | "
            "Авто: %s %s | ТП: %s\n",
@@ -88,7 +96,10 @@ void print_owner(const CarOwner *o) {
            o->address.house, o->address.apartment,
            o->car_make, o->car_number, o->tech_passport);
 }
-
+/*
+ * Function: print_owner_to_file
+ *   Writes owner information to file in semicolon-separated format.
+ */
 void print_owner_to_file(FILE *file, const CarOwner *o) {
     fprintf(file, "%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s\n",
            o->lastname, o->firstname, o->patronymic, o->phone,
@@ -98,7 +109,10 @@ void print_owner_to_file(FILE *file, const CarOwner *o) {
            o->address.house, o->address.apartment,
            o->car_make, o->car_number, o->tech_passport);
 }
-
+/*
+ * Function: filter_by_car_make
+ *   Filters owners by specified car make.
+ */
 int filter_by_car_make(const CarOwner owners[], int count, 
                        CarOwner result[], const char *make) {
     int found = 0;
@@ -109,7 +123,10 @@ int filter_by_car_make(const CarOwner owners[], int count,
     }
     return found;
 }
-
+/*
+ * Function: save_filtered_to_file
+ *   Saves filtered owners to output file.
+ */
 int save_filtered_to_file(const char *filename, 
                           const CarOwner owners[], int count) {
     FILE *file = fopen(filename, "w");
